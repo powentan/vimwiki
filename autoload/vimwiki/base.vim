@@ -448,7 +448,7 @@ function! vimwiki#base#system_open_link(url) "{{{
     if vimwiki#u#is_windows()
       call s:win32_handler(a:url)
       return
-    elseif has("macunix")
+	elseif has("macunix") || system('uname') =~ 'darwin'
       call s:macunix_handler(a:url)
       return
     else
